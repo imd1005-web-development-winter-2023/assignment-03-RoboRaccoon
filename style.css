@@ -31,11 +31,50 @@ header {
   background-color: var(--colour-aquaisland);
 }
 
-.header--banner--logo {
+.header--banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header--banner--logo--image {
   display: flex;
   justify-content: flex-start;
-  height: 75px;
+  width: 75px;
 } 
+
+.header--banner--logo {
+  display: flex;
+  flex-direction: row;
+  gap: 4%;
+} 
+
+.header--banner--nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 10%;
+  font-weight: 100;
+  font-size: larger;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.header--banner--nav ul li a {
+  padding: 10%;
+  color: var(--colour-cello);
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.header--banner--nav ul li a:hover {
+  background-color: var(--colour-cello);
+  padding: 10%;
+  border-radius: 10px 10px;
+  color: var(--colour-aquaisland);
+  text-decoration: none;
+}
 
 body {
   text-align: center;
