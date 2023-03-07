@@ -25,8 +25,21 @@
 /*
   PAGE / BODY
 */
+
+header {
+  padding: 2%;
+  background-color: var(--colour-aquaisland);
+}
+
+.header--banner--logo {
+  display: flex;
+  justify-content: flex-start;
+  height: 75px;
+} 
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--body-default-colour);
   background-color: var(--body-background-colour);
 }

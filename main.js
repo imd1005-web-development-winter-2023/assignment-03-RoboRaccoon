@@ -8,8 +8,8 @@
 //
 
 // Constants
-const appID = "app";
-const headingText = "To do. To done. ✅";
+ const appID = "app";
+ const headingText = "To do. To done. ✅";
 
 // Variables
 
