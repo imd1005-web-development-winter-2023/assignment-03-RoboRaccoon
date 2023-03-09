@@ -49,11 +49,20 @@ header {
   gap: 4%;
 } 
 
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  border-radius: 10px;
+}
+
 .header--banner--nav ul {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  gap: 10%;
+  gap: 10px;
   font-weight: 100;
   font-size: larger;
   list-style-type: none;
@@ -62,7 +71,7 @@ header {
 }
 
 .header--banner--nav ul li a {
-  padding: 10%;
+  padding: 10px;
   color: var(--colour-cello);
   text-decoration: none;
   transition: 0.5s;
@@ -70,8 +79,8 @@ header {
 
 .header--banner--nav ul li a:hover {
   background-color: var(--colour-cello);
-  padding: 10%;
-  border-radius: 10px 10px;
+  padding: 10px;
+  border-radius: 10px;
   color: var(--colour-aquaisland);
   text-decoration: none;
 }
@@ -87,8 +96,36 @@ main {
   min-height: 100vh;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-self: space-between;
+  /*background-color: #1d3557;*/
+}
+
+.side--banner--nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 100;
+  font-size: larger;
+  list-style-type: none;
+  margin: 0px;
+  padding-top: 0px;
+  background-color:#a8dadc;
+}
+
+.side--banner--nav ul li a {
+  padding: 10px;
+  color: var(--colour-cello);
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.side--banner--nav ul li a:hover {
+  background-color: var(--colour-cello);
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--colour-aquaisland);
+  text-decoration: none;
 }
 
 /*
