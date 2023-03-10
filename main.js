@@ -6,7 +6,7 @@
 //
 // Variables
 //
-
+/*
 // Constants
  const appID = "app";
  const headingText = "To do. To done. ✅";
@@ -42,3 +42,4 @@ function inititialise() {
 //
 
 inititialise();
+*/
