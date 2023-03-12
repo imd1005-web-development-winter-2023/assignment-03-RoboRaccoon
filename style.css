@@ -49,20 +49,20 @@ header {
   align-items: center;
   text-decoration: none;
   gap: 4%;
-  padding-bottom: 4%;
+  margin: 2%;
   color: var(--colour-cello);
 } 
 
 .header--banner--logo--image {
-  max-width: 75px;
+  max-width: 30px;
 } 
-
 
 .search {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 2%;
+  margin: 2%;
   border-radius: 10px;
   background-color: var(--colour-wedgewood);
 }
@@ -73,19 +73,18 @@ header {
   border-radius: 10px;
 }
 
-.search button {
+.search a {
   padding: 5px;
   border-radius: 10px;
-  border: 3px solid var(--colour-wedgewood);
   background-color: var(--colour-wedgewood);
 }
 
-.search button:hover {
+.search a:hover {
   background-color: var(--colour-cello);
 }
 
-.header--banner .search img {
-  max-height: 50px;
+.search img {
+  max-height: 25px;
   filter: invert();
 }
 
@@ -97,12 +96,10 @@ header {
 
   font-size: x-large;
   list-style-type: none;
-  margin: 0px;
+  margin: 2%;
   padding: 0px;
-
   gap: 20px;
   border-radius: 10px;
-  transition: 0.5s;
 }
 
 .header--banner--nav ul img {
