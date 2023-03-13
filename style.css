@@ -2,7 +2,7 @@
   CSS File
 */
 
-/*{
+*{
   border: 1px solid red;
 }
 
@@ -87,11 +87,6 @@ header {
   border-radius: 10px;
 }
 
-.search a {
-  padding: 5px;
-  border-radius: 10px;
-}
-
 .search a:hover {
   filter: opacity(50%);
 }
@@ -156,9 +151,10 @@ main {
 .side--banner--nav ul {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  padding-right: 10%;
+  padding-bottom: 10%;
   list-style-type: none;
-  text-align: left;
 }
 
 .side--banner--nav ul li a {
@@ -174,6 +170,16 @@ main {
   color: white;
   background-color: var(--colour-1);
   border-bottom: 4px solid var(--colour-10);
+}
+
+.footer--banner {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+
+.footer--banner--plus {
+  grid-auto-flow: column;
 }
 
 body {
