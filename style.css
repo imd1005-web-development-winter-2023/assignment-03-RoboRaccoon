@@ -125,6 +125,8 @@ header {
   background-color: var(--colour-cello);
 }
 
+/*  Main section */
+
 main {
   min-height: 100vh;
   /*justify-content: space-between;
@@ -132,12 +134,14 @@ main {
   background-color: var(--colour-gray);
 }
 
+/* Navigation */
+
 .side--banner--nav {
   font-weight: 100;
   font-size: larger;
   margin: 0px;
   padding: 0px;
-  color: var(--colour-cello);
+  color: var(--colour-1);
   background-color: var(--colour-peppermint);
 }
 
@@ -172,6 +176,15 @@ main {
   border-bottom: 4px solid var(--colour-10);
 }
 
+/* The to do list */
+
+.list {
+  align-items: center;
+  color: var(--colour-peppermint);
+}
+
+/* Footer section */
+
 .footer--banner {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -179,7 +192,11 @@ main {
 }
 
 .footer--banner--plus {
-  grid-auto-flow: column;
+  grid-column-start: 3;
+  transform: translate(0px, -50%);
+  padding: 15%;
+  border-radius: 50%;
+  background-color: var(--colour-peppermint);
 }
 
 body {

@@ -6,10 +6,19 @@
 //
 // Variables
 //
-/*
+
 // Constants
- const appID = "app";
- const headingText = "To do. To done. ✅";
+const appID = "app";
+const tasks = [1,2,3];
+
+const taskList = document.querySelector(".task-list"); // get list
+const form = document.querySelector(".add-task-form"); // get form
+const inputBox = document.querySelector("#task-name");  // get name
+
+taskList.classList.add("className");
+console.log(taskList);
+
+//  const headingText = "To do. To done. ✅";
 
 // Variables
 
@@ -28,10 +37,10 @@ function inititialise() {
     return;
   }
 
-  // Create an h1 and add it to our app
-  const h1 = document.createElement("h1");
-  h1.innerText = headingText;
-  appContainer.appendChild(h1);
+  // // Create an h1 and add it to our app
+  // const h1 = document.createElement("h1");
+  // h1.innerText = headingText;
+  // appContainer.appendChild(h1);
 
   // Init complete
   console.log("App successfully initialised");
@@ -42,4 +51,3 @@ function inititialise() {
 //
 
 inititialise();
-*/

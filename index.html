@@ -49,7 +49,7 @@
           </a>
           </div>
 
-          <h2>Things To Do</h2>
+          <h1>Things To Do</h1>
 
             <div class="search">
               <!-- <input class="search--bar" type="text" placeholder="Search..."></input> -->
@@ -121,6 +121,31 @@
           </nav>
         </div>
         </section>
+
+        <!-- The To Dos -->
+          <section>
+            <div class="list">
+              <h2>Tasks</h2>
+            <!-- The form to ask for a task -->
+              <form class="add-task-form">
+                <label for="task-name">Task Name:</label>
+                <input 
+                  type="text"
+                  name="item"
+                  id="task-name"
+                  placeholder="Assign Task"
+                  required
+                />
+                <input type="submit" value="Add Task" />
+              </form>
+
+              <!-- The list begins -->
+              <ul class="task-list">
+                <li>Task 0</li>
+              </ul>
+
+            </div>
+          </section>
       </div>
     </main>
 
@@ -128,9 +153,8 @@
     <footer>
 
       <div class="footer--banner">
-        <a href="#">
+        <a class="footer--banner--plus" href="#">
           <img 
-            class="footer--banner--plus" 
             src="./images/favicon/plus.png" 
             alt="Add List" 
           />
