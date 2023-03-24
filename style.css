@@ -2,9 +2,9 @@
   CSS File
 */
 
-*{
+/* *{
   border: 1px solid red;
-}
+} */
 
 /*
  VARIABLES
@@ -51,7 +51,7 @@ header {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -185,7 +185,7 @@ main {
 
 /* Footer section */
 
-.footer--banner {
+/* .footer--banner {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(1, 1fr);
@@ -197,7 +197,7 @@ main {
   padding: 15%;
   border-radius: 50%;
   background-color: var(--colour-peppermint);
-}
+} */
 
 body {
   text-align: center;

@@ -37,17 +37,41 @@ function inititialise() {
     return;
   }
 
-  // // Create an h1 and add it to our app
-  // const h1 = document.createElement("h1");
-  // h1.innerText = headingText;
-  // appContainer.appendChild(h1);
+  // Create an h1 and add it to our app
+  const h1 = document.createElement("h1");
+  h1.innerText = headingText;
+  appContainer.appendChild(h1);
 
   // Init complete
   console.log("App successfully initialised");
+}
+
+// prints the list
+// needs to be called each time we update list to reprint it
+function renderList() {
+   // Clear all task in list
+   while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
+  }
+
+  for (let i = 0; i < list.length; i++) {
+    const taskListItem = document.createElement("li");
+    taskListItem.textContent = list[i].text + " " + list[i].isDone;
+
+    const todoListButton = document.createElement("button");
+    todoListButton.textContent = "Delete";
+
+    todoListButton.dataset.index = i;
+
+    taskListItem.appendChild(todoListButton);
+
+    taskList.appendChild(taskListItem);
+  }
 }
 
 //
 // Inits & Event Listeners
 //
 
-inititialise();
+// we don't want a heading to the app container 
+//inititialise();
