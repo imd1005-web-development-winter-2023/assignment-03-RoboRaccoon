@@ -78,16 +78,22 @@ function renderList() {
     // create each list item
     const taskListItem = document.createElement("li");
     // print the contents of list
-    taskListItem.textContent = tasks[i].text + " "; //+ tasks[i].isDone; // we'll show it's done some other way
+    //taskListItem.textContent = tasks[i].text + " "; //+ tasks[i].isDone; // we'll show it's done some other way
 
     // create delete button for each item
     const deleteTask = document.createElement("button");
     deleteTask.textContent = "Delete";
     deleteTask.dataset.index = i;
 
+    // the done button
+    const doneTask = document.createElement("text");
+    doneTask.textContent = tasks[i].text;
+    doneTask.dataset.index = i;
+
     // appendChild just means to add it
+    taskList.prepend(taskListItem); // preped add new items before
+    taskListItem.appendChild(doneTask); // append add new items after
     taskListItem.appendChild(deleteTask);
-    taskList.appendChild(taskListItem);
   }
 
   // clear form so text field is empty
@@ -116,8 +122,8 @@ function renderDone() {
     deleteDone.dataset.index = i;
 
     // appendChild just means to add it
+    doneList.prepend(doneListItem);
     doneListItem.appendChild(deleteDone);
-    doneList.appendChild(doneListItem);
   }
 }
 
@@ -140,6 +146,25 @@ function addItem(event) {
   renderList();
 }
 
+// add a taks to the list
+function addDone(event, taskName) {
+  event.preventDefault();
+
+  const newDone = taskName;
+
+  dones.push({
+    text: newDone,
+    isDone: true,
+  });
+
+  console.log("Name of New Task:", newDone);
+
+  console.log(dones);
+
+  // print updated list
+  renderDone();
+}
+
 // makes it so that we can delete individual tasks
 function handleDeleteTask(event) {
   if (event.target.nodeName !== "BUTTON") {
@@ -155,6 +180,25 @@ function handleDeleteTask(event) {
   renderList();
 }
 
+// makes it so that we can delete individual tasks
+function handleDoneTask(event) {
+  if (event.target.nodeName !== "TEXT") {
+    return;
+  }
+
+  var indexDone = event.target.dataset.index;
+
+  // trying to figure out how to just pass the text from task array xD
+  console.log(tasks[indexDone].text);
+  addDone(event, tasks[indexDone].text);
+
+  console.log("is done", tasks);
+
+  // delete it afer it's moved
+  tasks.splice(indexDone, 1);
+
+  renderList();
+}
 
 // makes it so that we can delete individual tasks
 function handleDeleteDone(event) {
@@ -164,7 +208,7 @@ function handleDeleteDone(event) {
 
   var indexToDelete = event.target.dataset.index;
 
-  tasks.splice(indexToDelete, 1);
+  dones.splice(indexToDelete, 1);
 
   console.log(dones);
 
@@ -192,12 +236,13 @@ function deleteAllDones(event) {
 //inititialise();
 
 // refresh list
-// renderList();
-// renderDone();
+ renderList();
+ renderDone();
 // add event listener to form
 form.addEventListener("submit", addItem);
 // add event listener to button
 taskList.addEventListener("click", handleDeleteTask);
+taskList.addEventListener("click", handleDoneTask);
 // add envent listener for the "Delete All" tasks button
 deleteAllTasksButton.addEventListener("click", deleteAllTasks);
 
