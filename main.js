@@ -12,17 +12,17 @@ const appID = "app";
 const tasks = [
   // tests
   // 1,2,3 
-  {
-  text: "Task 0",
-  isDone: false,
-  }
+  // {
+  // text: "Task 0",
+  // isDone: false,
+  // }
 ];
 
 const dones = [
-  {
-    text: "?",
-    isDone: true,
-  }
+  // {
+  //   text: "?",
+  //   isDone: true,
+  // }
 ]
 
 // allows us to select items from html

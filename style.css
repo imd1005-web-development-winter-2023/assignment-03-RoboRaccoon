@@ -33,26 +33,37 @@
   --header-heading-colour: var(--colour-peppermint);
 
   /* Body configuration */
-  --body-default-colour: var(--colour-cello);
-  --body-background-colour: var(--colour-peppermint);
+  --body-default-colour: var(--colour-peppermint);
+  --body-background-colour: var(--colour-gray);
 }
 
 /*
   PAGE / BODY
 */
 
+body {
+  text-align: center;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--body-default-colour);
+  background-color: var(--body-background-colour);
+}
+
 header {
   padding: 2%;
   color: white;
   background-color: var(--colour-1);
 }
-
+/* 
 .header--banner {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+}
+
+.header--banner h1 {
+  font-weight: 400;
 }
 
 .header--banner--menu a {
@@ -72,12 +83,12 @@ header {
 .header--banner--menu--image {
   max-width: 30px;
   filter: invert();
-} 
+}  */
 
 .header--banner h2 {
   font-weight: 200;
 }
-
+/* 
 .search {
   display: flex;
   flex-direction: row;
@@ -123,7 +134,7 @@ header {
 
 .header--banner--nav ul li:hover {
   background-color: var(--colour-cello);
-}
+} */
 
 /*  Main section */
 
@@ -179,9 +190,41 @@ main {
 /* The to do list */
 
 .list {
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
   color: var(--colour-peppermint);
 }
+
+@media screen and (min-width: 750px) {
+  .list {
+    display: flex;
+  }
+
+  .list > * + * {
+    margin-left: 2rem;
+  }
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  word-break: break-all; 
+  gap: 2rem;
+  padding-top: 1rem;
+  /* justify-content: space-between; */
+}
+
+/* get every thing to same font weight */
+
+.list
+h2,
+form,
+button,
+li
+ {
+  font-weight: 100;
+} 
 
 /* Footer section */
 
@@ -198,13 +241,6 @@ main {
   border-radius: 50%;
   background-color: var(--colour-peppermint);
 } */
-
-body {
-  text-align: center;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--body-default-colour);
-  background-color: var(--body-background-colour);
-}
 
 /*
   Screen reader text utility class
