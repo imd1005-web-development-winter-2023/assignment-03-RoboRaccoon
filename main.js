@@ -13,7 +13,7 @@ const tasks = [
   // tests
   // 1,2,3 
   {
-  text: "task 0",
+  text: "Task 0",
   isDone: false,
   }
 ];
@@ -26,11 +26,13 @@ const dones = [
 ]
 
 // allows us to select items from html
-const taskList = document.querySelector(".task-list"); // get list
+const taskList = document.querySelector(".task-list"); // get task list
 const form = document.querySelector(".add-task-form"); // get form
 const inputBox = document.querySelector("#task-name");  // get name
-const deleteAllButton = document.querySelector(".delete-all"); // get the delete button
-const doneList = document.querySelector(".done-list");
+const deleteAllTasksButton = document.querySelector(".delete-all-tasks"); // get the delete tasks button
+
+const doneList = document.querySelector(".done-list"); // get done list
+const deleteAllDoneButton = document.querySelector(".delete-all-done"); // get the delete button
 
 taskList.classList.add("className");
 console.log(taskList);
@@ -79,12 +81,12 @@ function renderList() {
     taskListItem.textContent = tasks[i].text + " "; //+ tasks[i].isDone; // we'll show it's done some other way
 
     // create delete button for each item
-    const taskListButton = document.createElement("button");
-    taskListButton.textContent = "Delete";
-    taskListButton.dataset.index = i;
+    const deleteTask = document.createElement("button");
+    deleteTask.textContent = "Delete";
+    deleteTask.dataset.index = i;
 
     // appendChild just means to add it
-    taskListItem.appendChild(taskListButton);
+    taskListItem.appendChild(deleteTask);
     taskList.appendChild(taskListItem);
   }
 
@@ -102,20 +104,20 @@ function renderDone() {
   }
 
   // add the new done tasks
-  for (let i = 0; i < tasks.length; i++) {
+  for (let i = 0; i < dones.length; i++) {
     // create each list item
-    const taskListItem = document.createElement("li");
+    const doneListItem = document.createElement("li");
     // print the contents of list
-    taskListItem.textContent = tasks[i].text + " "; //+ tasks[i].isDone; // we'll show it's done some other way
+    doneListItem.textContent = dones[i].text; 
 
     // create delete button for each item
-    const todoListButton = document.createElement("button");
-    todoListButton.textContent = "Delete";
-    todoListButton.dataset.index = i;
+    const deleteDone = document.createElement("button");
+    deleteDone.textContent = "Delete";
+    deleteDone.dataset.index = i;
 
     // appendChild just means to add it
-    taskListItem.appendChild(todoListButton);
-    taskList.appendChild(taskListItem);
+    doneListItem.appendChild(deleteDone);
+    doneList.appendChild(doneListItem);
   }
 }
 
@@ -138,25 +140,48 @@ function addItem(event) {
   renderList();
 }
 
-// 
-function handleButtonClickInsideUl(event) {
+// makes it so that we can delete individual tasks
+function handleDeleteTask(event) {
   if (event.target.nodeName !== "BUTTON") {
     return;
   }
 
-  var todoArrayIndexToDelete = event.target.dataset.index;
+  var indexToDelete = event.target.dataset.index;
 
-  tasks.splice(todoArrayIndexToDelete, 1);
+  tasks.splice(indexToDelete, 1);
 
   console.log(tasks);
 
   renderList();
 }
 
+
+// makes it so that we can delete individual tasks
+function handleDeleteDone(event) {
+  if (event.target.nodeName !== "BUTTON") {
+    return;
+  }
+
+  var indexToDelete = event.target.dataset.index;
+
+  tasks.splice(indexToDelete, 1);
+
+  console.log(dones);
+
+  renderDone();
+}
+
 // delete all tasks by setting the array length to 0
 function deleteAllTasks(event) {
   tasks.length = 0;
+  console.log("Delete all was clicked");
   renderList();
+}
+
+// delete all dones
+function deleteAllDones(event) {
+  dones.length = 0;
+  renderDone();
 }
 
 //
@@ -167,11 +192,15 @@ function deleteAllTasks(event) {
 //inititialise();
 
 // refresh list
-renderList();
-
+// renderList();
+// renderDone();
 // add event listener to form
 form.addEventListener("submit", addItem);
 // add event listener to button
-taskList.addEventListener("click", handleButtonClickInsideUl);
+taskList.addEventListener("click", handleDeleteTask);
 // add envent listener for the "Delete All" tasks button
-deleteAllButton.addEventListener("click", deleteAllTasks);
+deleteAllTasksButton.addEventListener("click", deleteAllTasks);
+
+// add event listener for the done list
+doneList.addEventListener("click", handleDeleteDone);
+deleteAllDoneButton.addEventListener("click", deleteAllDones); 
