@@ -20,7 +20,7 @@ const tasks = [
 
 const dones = [
   {
-    text: "",
+    text: "?",
     isDone: true,
   }
 ]
@@ -114,24 +114,35 @@ function renderDone() {
     // create each list item
     const doneListItem = document.createElement("li");
     // print the contents of list
-    doneListItem.textContent = dones[i].text; 
+    // doneListItem.textContent = dones[i].text; 
 
     // create delete button for each item
     const deleteDone = document.createElement("button");
     deleteDone.textContent = "Delete";
     deleteDone.dataset.index = i;
 
+    // the undone button
+    const unDoneTask = document.createElement("text");
+    unDoneTask.textContent = dones[i].text;
+    unDoneTask.dataset.index = i;
+
     // appendChild just means to add it
     doneList.prepend(doneListItem);
+    doneListItem.appendChild(unDoneTask);
     doneListItem.appendChild(deleteDone);
   }
 }
 
 // add a taks to the list
-function addItem(event) {
+function addItem(event, unDoneTask) {
   event.preventDefault();
 
-  const newTask = inputBox.value;
+  let newTask = inputBox.value;
+
+  // if we're mark a task as undone
+  if (unDoneTask != null) {
+    newTask = unDoneTask;
+  }
 
   tasks.push({
     text: newTask,
@@ -165,8 +176,9 @@ function addDone(event, taskName) {
   renderDone();
 }
 
-// makes it so that we can delete individual tasks
+// delete individual tasks in task list
 function handleDeleteTask(event) {
+  // if we didn't click the delete button, do nothing
   if (event.target.nodeName !== "BUTTON") {
     return;
   }
@@ -180,8 +192,24 @@ function handleDeleteTask(event) {
   renderList();
 }
 
-// makes it so that we can delete individual tasks
+// delete individual tasks in done list
+function handleDeleteDone(event) {
+  if (event.target.nodeName !== "BUTTON") {
+    return;
+  }
+
+  var indexToDelete = event.target.dataset.index;
+
+  dones.splice(indexToDelete, 1);
+
+  console.log(dones);
+
+  renderDone();
+}
+
+// mark tasks as done (task list -> done list)
 function handleDoneTask(event) {
+  // if we didn't click the text, do nothing
   if (event.target.nodeName !== "TEXT") {
     return;
   }
@@ -200,17 +228,23 @@ function handleDoneTask(event) {
   renderList();
 }
 
-// makes it so that we can delete individual tasks
-function handleDeleteDone(event) {
-  if (event.target.nodeName !== "BUTTON") {
+// mark tasks as undone (done list -> task list)
+function handleUndoneTask(event) {
+  // if we didn't click the text, do nothing
+  if (event.target.nodeName !== "TEXT") {
     return;
   }
 
-  var indexToDelete = event.target.dataset.index;
+  var indexUnDone = event.target.dataset.index;
 
-  dones.splice(indexToDelete, 1);
+  // trying to figure out how to just pass the text from task array xD
+  console.log(dones[indexUnDone].text);
+  addItem(event, dones[indexUnDone].text);
 
-  console.log(dones);
+  console.log("is undone", dones);
+
+  // delete it afer it's moved
+  dones.splice(indexUnDone, 1);
 
   renderDone();
 }
@@ -235,12 +269,13 @@ function deleteAllDones(event) {
 // we don't want a heading to the app container 
 //inititialise();
 
-// refresh list
+// refresh list from initial stuff
  renderList();
  renderDone();
+
 // add event listener to form
 form.addEventListener("submit", addItem);
-// add event listener to button
+// add event listener to buttons
 taskList.addEventListener("click", handleDeleteTask);
 taskList.addEventListener("click", handleDoneTask);
 // add envent listener for the "Delete All" tasks button
@@ -248,4 +283,5 @@ deleteAllTasksButton.addEventListener("click", deleteAllTasks);
 
 // add event listener for the done list
 doneList.addEventListener("click", handleDeleteDone);
+doneList.addEventListener("click", handleUndoneTask);
 deleteAllDoneButton.addEventListener("click", deleteAllDones); 
