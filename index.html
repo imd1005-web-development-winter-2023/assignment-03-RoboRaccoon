@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="style.css" />
 
     <!-- Set the Favicon  -->
-    <link rel="icon" href="./images/favicon/rocket.svg" type="image/svg+xml" />
+    <link rel="icon" href="./images/favicon/planet silouette.svg" type="image/svg+xml" alt="planet logo"/>
   </head>
   <body>
     <!--
@@ -35,9 +35,150 @@
       - Have you conducted a code review and left a GitHub Issue on your team member's repo?
 
     -->
+
+    <!-- Header Section -->
+    <header>
+        <div class="header--banner">
+          <!-- Hamberger menu -->
+          <!-- <div class="header--banner--menu">
+          <a href="#">
+            <img 
+              class="header--banner--menu--image" 
+              src="./images/favicon/menu.png" 
+              alt="Menu" 
+            />
+          </a>
+          </div> -->
+
+          <h1>Task Master</h1>
+
+          <!-- Search Bar -->
+            <!-- <div class="search">
+              <input class="search--bar" type="text" placeholder="Search..."></input>
+              <a href="#">
+                <img 
+                  src="./images/favicon/search.png" 
+                  alt="Search" 
+                />
+              </a>
+            </div> -->
+            
+<!-- 
+          <nav class="header--banner--nav">
+            <ul>
+              <li>
+                <a href="#Settings">
+                  <img
+                    src="./images/favicon/gear.png"
+                    alt="Settings"
+                  />
+                </a>
+              </li> 
+              <li>
+                <a href="#Help">
+                  <img
+                    src="./images/favicon/help.png"
+                    alt="Settings"
+                  />
+                </a>
+              </li> 
+              <li>
+                <a href="#Notifications">
+                  <img
+                    src="./images/favicon/bell.png"
+                    alt="Settings"
+                  />
+                </a>
+              </li> 
+              <li>
+                <a href="#Profile">
+                  <img
+                    src="./images/favicon/profile.png"
+                    alt="Settings"
+                  />
+                </a>
+              </li>
+            </ul>
+          </nav> -->
+        </div>
+
+    </header>
+  <!-- Main area -->
     <main>
-      <div id="app"></div>
+      <div id="app">
+      
+        <!-- Lists banner
+        <section>
+        </div>
+          <nav class="side--banner--nav">
+
+            <h2>Lists</h2>
+
+            <ul>
+              <li><a href="#Today">L1</a></li> 
+              <li><a href="#Upcomming">L2</a></li> 
+              <li><a href="#Sometime">L3</a></li> 
+              <li><a href="#Anytime">L4</a></li>
+              <li><a href="#Logbook">L5</a></li>
+            </ul>
+          </nav>
+        </div>
+        </section> -->
+
+        <!-- The To Dos -->
+          <section>
+            <div class="list">
+             <div class="task-section">
+              <h2>Tasks To Do</h2>
+            <!-- The form to ask for a task -->
+              <form class="add-task-form">
+                <label class="label" for="task-name">New Task:</label>
+                <input 
+                  class="input"
+                  type="text"
+                  name="item"
+                  id="task-name"
+                  placeholder="New Task"
+                  required
+                />
+                <input class="submit" type="submit" value="Add Task" />
+              </form>
+
+               <!-- Delete all tasks button -->
+               <button class="delete-all-tasks">Delete All</button>
+              </div>
+               <!-- The list for tasks -->
+                <ul class="task-list">
+                  <li>Task 0</li>
+                </ul>
+              
+              <!-- The list for finished tasks -->
+              <div class="done-section">
+              <h2>Tasks Complete</h2>
+              
+              <!-- Delete all done button -->
+              <button class="delete-all-done">Delete All</button>
+              </div>
+                <ul class="done-list">
+                  <li>None</li>
+                </ul>
+            </div>
+          </section>
+      </div>
     </main>
+
+    <!-- Footer area -->
+    <footer>
+<!-- 
+      <div class="footer--banner">
+        <a class="footer--banner--plus" href="#">
+          <img 
+            src="./images/favicon/plus.png" 
+            alt="Add List" 
+          />
+        </a>
+      </div> -->
+    </footer>
 
     <!-- This is where we add our awesome JavaScript code -->
     <script src="./main.js"></script>
