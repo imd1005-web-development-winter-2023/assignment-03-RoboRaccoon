@@ -19,14 +19,14 @@
   --colour-cello: #1d3557;
   --colour-gray: #2b2a2a;
   --colour-1: #7400B8;
-  --colour-2: #6930C3;
-  --colour-3: #5E60CE;
+  --colour-2: rgba(104, 48, 195, 0.6);
+  --colour-3: rgba(94, 96, 206, 0.5);
   --colour-4: #5390D9;
   --colour-5: #4EA8DE;  
-  --colour-6: #48BFE3;
+  --colour-6: rgba(72, 191, 227, 0.5);
   --colour-7: #56CFE1;
   --colour-8: #64DFDF;
-  --colour-9: #72EFDD;
+  --colour-9: rgba(114, 239, 221, 0.5);
   --colour-10: #80FFDB;
 
   /* Header configuration */
@@ -142,6 +142,8 @@ main {
   min-height: 100vh;
   /*justify-content: space-between;
   align-self: space-between;*/
+  background: var(--colour-cello);
+  background: linear-gradient(0deg, var(--colour-1) 5%, var(--colour-2) 70%, var(--colour-gray) 100%);
 }
 
 /* Navigation */
@@ -189,7 +191,7 @@ main {
 /* The to do list */
 
 .list {
-  display:grid;
+  display: grid;
   color: var(--colour-peppermint);
 }
 
@@ -213,14 +215,27 @@ main {
 
 }
 
+.list ul {
+  list-style: none;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: var(--colour-peppermint) dashed 1px;
+  border-bottom: var(--colour-peppermint) dashed 1px;
+  background-color: var(--body-background-colour);
+}
+
+
 .list li {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  word-break: break-all; 
+  word-break: break-word;
+  text-align: left;
   gap: 2rem;
-  padding-bottom: 2rem;
-  translate: -1rem;
-  /* justify-content: space-between; */
+  padding-left: 1rex;
+  margin: 0.5rem;
+  translate: -2rex;
+  border-radius: 10px;
+  background-color: var(--colour-1);
 }
 
 .task-section {
