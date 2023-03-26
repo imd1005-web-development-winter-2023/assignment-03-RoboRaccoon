@@ -128,39 +128,40 @@
         <!-- The To Dos -->
           <section>
             <div class="list">
+             <div class="task-section">
               <h2>Tasks To Do</h2>
             <!-- The form to ask for a task -->
               <form class="add-task-form">
-                <label for="task-name">New Task:</label>
+                <label class="label" for="task-name">New Task:</label>
                 <input 
+                  class="input"
                   type="text"
                   name="item"
                   id="task-name"
                   placeholder="New Task"
                   required
                 />
-                <input type="submit" value="+" />
+                <input class="submit" type="submit" value="Add Task" />
               </form>
 
                <!-- Delete all tasks button -->
                <button class="delete-all-tasks">Delete All</button>
-
-              <!-- The list for tasks -->
-              <ul class="task-list">
-                <li>Task 0</li>
-              </ul>
-
-              <!-- The list for finished tasks -->
+              </div>
+               <!-- The list for tasks -->
+                <ul class="task-list">
+                  <li>Task 0</li>
+                </ul>
               
+              <!-- The list for finished tasks -->
+              <div class="done-section">
               <h2>Tasks Complete</h2>
               
               <!-- Delete all done button -->
               <button class="delete-all-done">Delete All</button>
-
-              <ul class="done-list">
-                <li>None</li>
-              </ul>
-
+              </div>
+                <ul class="done-list">
+                  <li>None</li>
+                </ul>
             </div>
           </section>
       </div>

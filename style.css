@@ -142,7 +142,6 @@ main {
   min-height: 100vh;
   /*justify-content: space-between;
   align-self: space-between;*/
-  background-color: var(--colour-gray);
 }
 
 /* Navigation */
@@ -190,30 +189,65 @@ main {
 /* The to do list */
 
 .list {
-  display: flex;
-  flex-direction: column;
-  padding-top: 2rem;
+  display:grid;
   color: var(--colour-peppermint);
 }
 
 @media screen and (min-width: 750px) {
   .list {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+    gap: 2rex;
   }
 
-  .list > * + * {
-    margin-left: 2rem;
+  .task-section {
+    grid-row-start: 1;
+    grid-column-start: 1;
   }
+
+  .done-section {
+    grid-row-start: 1;
+    grid-column-start: 2;
+  }
+
+  /* .list > * + * {
+    margin-left: 2rem;
+  } */
 }
 
 .list li {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   word-break: break-all; 
   gap: 2rem;
-  padding-top: 1rem;
+  padding-bottom: 2rem;
+  translate: -1rem;
   /* justify-content: space-between; */
 }
+
+.task-section {
+  display: grid;
+  gap: 1rex;
+  padding: 1rem;
+}
+
+.add-task-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: 
+  "label label label label"
+  "input input input submit";
+}
+
+.label {grid-area: label;}
+.input {grid-area: input;}
+.submit {grid-area: submit;}
+
+.done-section{
+  display: grid;
+  padding: 1rem;
+} 
 
 /* get every thing to same font weight */
 
