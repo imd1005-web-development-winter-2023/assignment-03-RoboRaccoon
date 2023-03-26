@@ -67,7 +67,7 @@ function inititialise() {
 
 // prints the task list
 // needs to be called each time we update list to reprint it
-function renderList() {
+function renderList(thingAdded) {
    // Clear all task in list
    while (taskList.firstChild) {
     taskList.removeChild(taskList.firstChild);
@@ -90,6 +90,11 @@ function renderList() {
     doneTask.textContent = tasks[i].text;
     doneTask.dataset.index = i;
 
+    // add aniation class on last list in item
+    if (i === tasks.length - 1 && thingAdded === true) {
+      taskListItem.classList.add("new-item-annimate");
+    }
+
     // appendChild just means to add it
     taskList.prepend(taskListItem); // preped add new items before
     taskListItem.appendChild(doneTask); // append add new items after
@@ -103,7 +108,7 @@ function renderList() {
 
 // prints the done list
 // needs to be called each we update done list
-function renderDone() {
+function renderDone(thingAdded) {
   // Clear all tasks
   while (doneList.firstChild) {
     doneList.removeChild(doneList.firstChild);
@@ -125,6 +130,11 @@ function renderDone() {
     const unDoneTask = document.createElement("text");
     unDoneTask.textContent = dones[i].text;
     unDoneTask.dataset.index = i;
+
+     // add aniation class on last list in item
+     if (i === dones.length - 1 && thingAdded === true) {
+      doneListItem.classList.add("new-item-annimate");
+    }
 
     // appendChild just means to add it
     doneList.prepend(doneListItem);
@@ -154,7 +164,7 @@ function addItem(event, unDoneTask) {
   console.log(tasks);
 
   // print updated list
-  renderList();
+  renderList(true);
 }
 
 // add a taks to the list
@@ -173,7 +183,7 @@ function addDone(event, taskName) {
   console.log(dones);
 
   // print updated list
-  renderDone();
+  renderDone(true);
 }
 
 // delete individual tasks in task list
