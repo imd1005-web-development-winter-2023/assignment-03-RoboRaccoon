@@ -227,6 +227,7 @@ main {
 .list li {
   display: grid;
   grid-template-columns: 2fr 1fr;
+  /* allows the words to wrap so they don't extend the box */
   word-break: break-word;
   text-align: left;
   gap: 2rem;
@@ -324,6 +325,15 @@ main {
   display: grid;
   padding: 1rem;
 } 
+
+.done-list text {
+  text-decoration: line-through;
+  color: var(--colour-10);
+}
+
+.done-list text:hover {
+  text-decoration: none;
+}
 
 .done-list li:hover {
   background: linear-gradient( var(--colour-gray) 5%, var(--colour-4) 100%);
