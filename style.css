@@ -224,7 +224,6 @@ main {
   background-color: var(--body-background-colour);
 }
 
-
 .list li {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -233,9 +232,30 @@ main {
   gap: 2rem;
   padding-left: 1rex;
   margin: 0.5rem;
-  translate: -2rex;
+  translate: -1.5rem;
   border-radius: 10px;
   background-color: var(--colour-1);
+  transition: 1s;
+}
+
+.task-list li:hover {
+  background: linear-gradient(var(--colour-gray) 5%, var(--colour-4) 100%);
+}
+
+.task-list text:hover {
+  text-decoration: line-through;
+  color: var(--colour-10);
+}
+
+.task-list button {
+  border-radius: 10px;
+  border: var(--colour-peppermint) solid 1px;
+  color: var(--colour-peppermint);
+  background-color: var(--colour-amaranth);
+}
+
+.task-list button:hover {
+  filter: brightness(80%);
 }
 
 .task-section {
@@ -253,13 +273,72 @@ main {
 }
 
 .label {grid-area: label;}
-.input {grid-area: input;}
-.submit {grid-area: submit;}
+.input {
+  grid-area: input;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: var(--colour-peppermint);
+}
+.submit {
+  grid-area: submit;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: var(--colour-10);
+  background-color: black;
+}
+
+.submit:hover {
+  color: black;
+  background-color: var(--colour-10);
+}
+
+.delete-all-tasks {
+  margin-left: 33%;
+  margin-right: 33%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: var(--colour-10);
+  background-color: black;
+}
+
+.delete-all-tasks:hover {
+  color: black;
+  background-color: var(--colour-10);
+}
+
+.delete-all-done {
+  margin-left: 33%;
+  margin-right: 33%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: var(--colour-10);
+  background-color: black;
+}
+
+.delete-all-done:hover {
+  color: black;
+  background-color: var(--colour-10);
+}
 
 .done-section{
   display: grid;
   padding: 1rem;
 } 
+
+.done-list li:hover {
+  background: linear-gradient( var(--colour-gray) 5%, var(--colour-4) 100%);
+}
+
+.done-list button {
+  border-radius: 10px;
+  border: var(--colour-peppermint) solid 1px;
+  color: var(--colour-peppermint);
+  background-color: var(--colour-amaranth);
+}
+
+.done-list button:hover {
+  filter: brightness(80%);
+}
 
 /* get every thing to same font weight */
 
